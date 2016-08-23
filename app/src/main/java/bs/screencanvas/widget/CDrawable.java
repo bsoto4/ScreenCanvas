@@ -1,4 +1,4 @@
-package bs.fabricview;
+package bs.screencanvas.widget;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

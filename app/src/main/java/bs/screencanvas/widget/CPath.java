@@ -1,45 +1,24 @@
-package bs.fabricview;
+package bs.screencanvas.widget;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 
 /**
  * Created by antwan on 10/3/2015.
  */
-public class CBitmap implements CDrawable {
-    private int x, y, height, width;
-    private Bitmap mBitmap;
+public class CPath implements CDrawable {
+    private int x, y;
+    private Path mPath;
     private Paint mPaint;
     private int mRotDegree;
-
-    public CBitmap(Bitmap src, int x, int y) {
-        this(src, x, y, null);
-    }
-
-    public CBitmap(Bitmap src, int x, int y, Paint p) {
-        mBitmap = src;
-        setXcoords(x);
-        setYcoords(y);
-        setPaint(p);
+    public CPath() {
+        mPath = new Path();
     }
 
     @Override
     public Paint getPaint() {
         return mPaint;
-    }
-
-    @Override
-    public void setPaint(Paint p) {
-        mPaint = p;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 
     @Override
@@ -63,9 +42,13 @@ public class CBitmap implements CDrawable {
     }
 
     @Override
+    public void setPaint(Paint p) {
+        mPaint = p;
+    }
+
+    @Override
     public void draw(Canvas canvas) {
-        Bitmap nsrc = Bitmap.createScaledBitmap(mBitmap, width, height, true);
-        canvas.drawBitmap(nsrc, x, y, mPaint);
+        canvas.drawPath(mPath, mPaint);
     }
 
     @Override
@@ -76,5 +59,13 @@ public class CBitmap implements CDrawable {
     @Override
     public void setRotation(int degree) {
         mRotDegree = degree;
+    }
+
+    public void lineTo(float eventX, float eventY) {
+        mPath.lineTo(eventX, eventY);
+    }
+
+    public void moveTo(float eventX, float eventY) {
+        mPath.moveTo(eventX, eventY);
     }
 }

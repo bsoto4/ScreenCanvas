@@ -1,4 +1,4 @@
-package bs.fabricview;
+package bs.screencanvas.widget;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Created by antwan on 10/3/2015.
  * A library for creating graphics on an object model on top of canvas.
  */
-public class FabricView extends View {
+public class ScreenCanvas extends View {
 
     /**********************************************************************************************/
     /*************************************     Vars    *******************************************/
@@ -88,7 +88,7 @@ public class FabricView extends View {
      * @param context the activity that containts the view
      * @param attrs   view attributes
      */
-    public FabricView(Context context, AttributeSet attrs) {
+    public ScreenCanvas(Context context, AttributeSet attrs) {
         super(context, attrs);
         setFocusable(true);
         setFocusableInTouchMode(true);
